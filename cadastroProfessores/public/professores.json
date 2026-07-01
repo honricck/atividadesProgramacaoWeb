@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nomeProfessor": "Joice Seleme Mota",
+        "email": "joice.mota@ifc.edu.br",
+        "sala": "Bloco B - Sala 201"
+    },
+    {
+        "id": 2,
+        "nomeProfessor": "Aujor Tadeu Andrade",
+        "email": "aujor.andrade@ifc.edu.br",
+        "sala": "Bloco A - Gabinete 05"
+    },
+    {
+        "id": 3,
+        "nomeProfessor": "André Fabiano de Moraes",
+        "email": "andre.moraes@ifc.edu.br",
+        "sala": "Bloco C - Sala 303"
+    },
+    {
+        "id": 4,
+        "nomeProfessor": "Carlos Silva",
+        "email": "carlos.silva@ifc.edu.br",
+        "sala": "Bloco A - Sala 101"
+    }
+]

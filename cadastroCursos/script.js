@@ -8,7 +8,7 @@ const form = document.getElementById('cursoForm');
 const tbody = document.getElementById('tbodyCursos');
 const modalTitle = document.getElementById('modalTitle');
 
-// FUNÇÃO CRUCIAL DA UNIDADE 3: Carrega os dados assincronamente do arquivo .json
+// Carrega os dados assincronamente do arquivo .json
 async function carregarCursosIniciais() {
     try {
         const resposta = await fetch('public/cursos.json');

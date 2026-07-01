@@ -1,10 +1,5 @@
-// Banco de dados em memória inicializado com dados de exemplo
-let professores = [
-    { id: 1, nome: "Joice Seleme Mota", email: "joice.mota@ifc.edu.br", sala: "Bloco B - Sala 201" },
-    { id: 2, nome: "Aujor Tadeu Andrade", email: "aujor.andrade@ifc.edu.br", sala: "Bloco A - Gabinete 05" }
-];
-
-// Variável de controle para identificar se é uma Edição ou Novo Cadastro
+// Array que gerenciará o estado dos professores na aplicação
+let professores = [];
 let idProfessorEmEdicao = null;
 
 // Elementos do DOM
@@ -13,41 +8,54 @@ const form = document.getElementById('professorForm');
 const tbody = document.getElementById('tbodyProfessores');
 const modalTitle = document.getElementById('modalTitle');
 
-// Abre o modal configurado para NOVO CADASTRO
+// Carrega os dados assincronamente do arquivo .json
+async function carregarProfessoresIniciais() {
+    try {
+        const resposta = await fetch('public/professores.json');
+        if (!resposta.ok) {
+            throw new Error('Erro ao carregar o arquivo JSON de professores.');
+        }
+        professores = await resposta.json();
+        atualizarTabela();
+    } catch (erro) {
+        console.error('Falha na requisição:', erro);
+        alert('Não foi possível carregar os professores iniciais automaticamente. Rode a aplicação em um servidor local (Live Server).');
+    }
+}
+
+// Abre modal para cadastro
 function abrirModalCadastro() {
     idProfessorEmEdicao = null;
     form.reset();
     modalTitle.textContent = "Adicionar Professor";
-    modal.style.display = "flex"; // "flex" faz o alinhamento central funcionar
-    document.getElementById('nome').focus();
+    modal.style.display = "flex";
+    document.getElementById('nomeProfessor').focus();
 }
 
-// Fecha o modal limpando os estados
+// Fecha o modal
 function fecharModal() {
     modal.style.display = "none";
     idProfessorEmEdicao = null;
     form.reset();
 }
 
-// Abre o modal configurado para EDIÇÃO, carregando os dados existentes
+// Prepara e abre o modal em modo Edição
 function prepararEdicao(id) {
     const professor = professores.find(p => p.id === id);
     if (professor) {
         idProfessorEmEdicao = id;
         modalTitle.textContent = "Editar Professor";
         
-        // Preenche os campos do formulário
-        document.getElementById('nome').value = professor.nome;
+        document.getElementById('nome').value = professor.nomeProfessor;
         document.getElementById('email').value = professor.email;
         document.getElementById('sala').value = professor.sala;
         
-        // Abre o modal
         modal.style.display = "flex";
         document.getElementById('nome').focus();
     }
 }
 
-// Controla o envio do formulário (Tanto para Criar quanto para Editar)
+// Lida com a submissão do formulário
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -56,7 +64,7 @@ form.addEventListener('submit', function(e) {
     const sala = document.getElementById('sala').value.trim();
 
     if (idProfessorEmEdicao !== null) {
-        // Modo Edição: Altera o registro correspondente
+        // Atualiza professor existente
         professores = professores.map(p => {
             if (p.id === idProfessorEmEdicao) {
                 return { id: p.id, nome, email, sala };
@@ -64,10 +72,10 @@ form.addEventListener('submit', function(e) {
             return p;
         });
     } else {
-        // Modo Cadastro: Insere um novo objeto
+        // Cria um novo professor
         const novoProf = {
             id: Date.now(),
-            nome,
+            nomeProfessor,
             email,
             sala
         };
@@ -78,14 +86,14 @@ form.addEventListener('submit', function(e) {
     fecharModal();
 });
 
-// Atualiza a listagem na tela
+// Renderiza as linhas na tabela
 function atualizarTabela() {
     tbody.innerHTML = '';
 
     professores.forEach(prof => {
         const tr = document.createElement('tr');
         tr.innerHTML = `
-            <td>${prof.nome}</td>
+            <td>${prof.nomeProfessor}</td>
             <td>${prof.email}</td>
             <td>${prof.sala}</td>
             <td>
@@ -99,7 +107,7 @@ function atualizarTabela() {
     });
 }
 
-// Exclui um professor
+// Exclui o professor selecionado
 function excluirProfessor(id) {
     if (confirm("Deseja realmente excluir este professor?")) {
         professores = professores.filter(p => p.id !== id);
@@ -107,12 +115,12 @@ function excluirProfessor(id) {
     }
 }
 
-// Fecha o modal se o usuário clicar no fundo escurecido (fora da caixa branca)
+// Fecha o modal ao clicar fora dele
 window.onclick = function(event) {
     if (event.target === modal) {
         fecharModal();
     }
 }
 
-// Inicializa a tabela na abertura da página
-atualizarTabela();
+// Dispara o carregamento dinâmico ao iniciar o sistema
+carregarProfessoresIniciais();
