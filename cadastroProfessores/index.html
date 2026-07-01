@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Professores - IFC</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="Logo_IFC_horizontal.png" alt="Logo IFC" class="logo-ifc">
+            <h1 class="title-system">Cadastro de Professores</h1>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <a href="../cadastroCursos/index.html">Cadastro de Cursos</a>
+        <a href="index.html" class="active">Cadastro de Professores</a>
+    </nav>
+
+    <main class="content-container">
+
+        <div class="action-bar">
+            <button class="btn-ifc" onclick="abrirModalCadastro()">Adicionar Professor</button>
+        </div>
+
+        <table class="table-ifc">
+            <thead>
+                <tr>
+                    <th>Nome do Professor</th>
+                    <th>E-mail</th>
+                    <th>Sala</th>
+                    <th style="width: 180px;">Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyProfessores">
+            </tbody>
+        </table>
+    </main>
+
+    <div id="modalProfessor" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Adicionar/Editar Professor</h2>
+                <span class="close-btn" onclick="fecharModal()">&times;</span>
+            </div>
+
+            <form id="professorForm">
+                <div class="form-group">
+                    <label for="nome">Nome do Professor:</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="sala">Sala:</label>
+                    <input type="text" id="sala" required>
+                </div>
+
+                <button type="submit" class="btn-submit-modal">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

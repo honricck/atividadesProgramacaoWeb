@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nome": "Tecnologia em Sistemas para Internet",
+        "sigla": "TSI",
+        "descricao": "O curso de Tecnologia em Sistemas para Internet na modalidade EAD foi pensado no intuito de formar profissionais para o mundo do trabalho que estejam aptos a desenvolver, analisar, projetar, especificar, documentar, e manter sistemas de informação voltados à utilização destes em rede, e, adaptáveis aos mais diversos dispositivos disponíveis e utilizados nas diferentes organizações, sob os princípios da ética, técnica, com uma visão criativa e humanista, com perfil cidadão, responsável, empreendedor e crítico.",
+        "coordenador": "Joice" 
+    },
+    {
+        "id": 2,
+        "nome": "Bacharelado em Sistemas de Informação",
+        "sigla": "BSI",
+        "descricao": "O Curso de Sistemas de Informação tem seu foco voltado para a formação do profissional que irá desenvolver ou gerenciar sistemas aplicativos. Forma profissionais aptos ao planejamento, aquisição e gerenciamento de serviços e recursos da Tecnologia da Informação e Computação, aplicados ao desenvolvimento e à evolução de sistemas e infraestruturas de automatização dos processos organizacionais.",
+        "coordenador": "Aujor" 
+    },
+    {
+        "id": 3,
+        "nome": "Bacharelado em Agronomia",
+        "sigla": "AGRO",
+        "descricao": "O curso de Bacharel em Agronomia tem por objetivo formar Engenheiros Agrônomos com forte base técnico-científica e responsabilidade social. Esta formação deve vir acompanhada de princípios que promovam o respeito à fauna e à flora; a conservação e recuperação da qualidade do solo, do ar e da água; o uso tecnológico racional e manejo integrado e sustentável do ambiente; emprego de raciocínio reflexivo, crítico e criativo; atendimento às expectativas humanas e sociais no exercício da atividade profissional, além de compromisso permanente com a educação ambiental e a educação étnico-racial e de gênero.",
+        "coordenador": "Alan" 
+    },
+    {
+        "id": 4,
+        "nome": "Bacharelado em Engenharia de Alimentos",
+        "sigla": "ENGAL",
+        "descricao": "O curso de Engenharia de Alimentos tem como objetivo formar profissionais com sólida base científica e tecnológica, capazes de atuar em todas as etapas do processamento de alimentos, desde a produção até a comercialização, com competência para desenvolver novos produtos e processos, garantindo a qualidade e a segurança alimentar, respeitando as normas ambientais e promovendo a sustentabilidade.",
+        "coordenador": "Mariana"
+    },
+    {
+        "id": 5,
+        "nome": "Bacharelado em Engenharia Civil",
+        "sigla": "ENGCIV",
+        "descricao": "O curso de Engenharia Civil tem como objetivo formar profissionais capazes de projetar, construir e gerenciar obras de infraestrutura, como edifícios, pontes, estradas e sistemas de abastecimento de água e esgoto. O engenheiro civil deve possuir conhecimentos em matemática, física, mecânica dos solos, hidráulica, materiais de construção e gestão de projetos, além de habilidades para trabalhar em equipe e resolver problemas complexos.",
+        "coordenador": "Carlos"
+    }    
+]
